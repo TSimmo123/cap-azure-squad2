@@ -28,3 +28,4 @@ steps:
     inputs:
       command: 'plan'
       allowTelemetryCollection: true
+      environmentServiceName: 'Aseem-Azure Sub'
