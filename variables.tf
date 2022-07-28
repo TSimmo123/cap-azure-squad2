@@ -17,7 +17,7 @@ variable "azure_resource_group_name" {
 variable "resource_name" {
   type        = string
   description = "Name For The Azure Virtual Machine"
-  default     = "terraform-session"
+  default     = "tf-sesh"
 }
 
 variable "azure_vm_size" {
