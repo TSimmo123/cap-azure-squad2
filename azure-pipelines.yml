@@ -19,6 +19,13 @@ steps:
     displayName: 'Terraform init'
     inputs:
       command: 'init'
+      backendAzureRmResourceGroupName: 'TF-Azure-Training-Simmo'
+      backendAzureRmStorageAccountName: 'tfazuretrainingsimmostr'
+      backendAzureRmContainerName: 'tfazuretrainingsimmocon'
+      backendAzureRmKey: 'terraform.tfstate'
+      backendAzureRmResourceGroupLocation: 'uksouth'
+      backendType: 'azurerm'
+      ensureBackend: true
       allowTelemetryCollection: true
 
   - task: TerraformCLI@0
@@ -40,3 +47,4 @@ steps:
       command: 'apply'
       allowTelemetryCollection: true
       environmentServiceName: 'Aseem-Azure Sub'
+
