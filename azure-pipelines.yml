@@ -33,3 +33,10 @@ steps:
       command: 'plan'
       allowTelemetryCollection: true
       environmentServiceName: 'Aseem-Azure Sub'
+
+  - task: TerraformCLI@0
+    displayName: 'Terraform apply'
+    inputs:
+      command: 'apply'
+      allowTelemetryCollection: true
+      environmentServiceName: 'Aseem-Azure Sub'
