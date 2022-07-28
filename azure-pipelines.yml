@@ -11,20 +11,24 @@ pool:
 
 steps:
   - task: TerraformInstaller@0
+    displayName: 'Terraform Installer'
     inputs:
       terraformVersion: 'latest'
 
   - task: TerraformCLI@0
+    displayName: 'Terraform init'
     inputs:
       command: 'init'
       allowTelemetryCollection: true
 
   - task: TerraformCLI@0
+    displayName: 'Terraform validate'
     inputs:
       command: 'validate'
       allowTelemetryCollection: true
 
   - task: TerraformCLI@0
+    displayName: 'Terraform plan'
     inputs:
       command: 'plan'
       allowTelemetryCollection: true
