@@ -1,4 +1,4 @@
-/*module "server" {
+/* module "server" {
   for_each                  = toset(var.location)
   source                    = "./Modules/deployments/linux_virtual_machine"
   resource_name             = var.resource_name
