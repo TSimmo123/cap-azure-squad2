@@ -9,4 +9,5 @@ module "server" {
   azure_vm_size             = var.azure_vm_size
   vm_data_disk_count        = var.data_disk_count
   vm_data_disk_size         = var.vm_data_disk_size
+  kv_object_id              = var.kv_object_id
 }

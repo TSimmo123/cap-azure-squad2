@@ -76,3 +76,8 @@ variable "azure_tm_endpoints" {
   type = string
   default = "example-tm-endpoints"
 }
+
+variable "kv_object_id" {
+  type = string
+  default =  "dfb3320f-4f91-485a-a6c9-2685bc8e0d0f"
+}
