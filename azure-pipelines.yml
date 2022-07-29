@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+- group: simmo-vars
+
 steps:
   - task: TerraformInstaller@0
     displayName: 'Terraform Installer'
@@ -19,12 +22,15 @@ steps:
     displayName: 'Terraform init'
     inputs:
       command: 'init'
-      backendAzureRmResourceGroupName: 'TF-Azure-Training-Simmo'
-      backendAzureRmStorageAccountName: 'tfazuretrainingsimmostr'
-      backendAzureRmContainerName: 'tfazuretrainingsimmocon'
-      backendAzureRmKey: 'terraform.tfstate'
-      backendAzureRmResourceGroupLocation: 'uksouth'
-      backendType: 'azurerm'
+      backendServiceArm: $(backendServiceArm)
+      backendAzureRmResourceGroupName: '$(backendAzureRmResourceGroupName)'
+      backendAzureRmResourceGroupName: '$(backendAzureRmResourceGroupName)'
+      backendAzureRmContainerName: '$(backendAzureRmContainerName)'
+      backendAzureRmStorageAccountName: '$()'
+      backendAzureRmContainerName: '$(backendAzureRmContainerName)'
+      backendAzureRmKey: '$(backendAzureRmKey)'
+      backendAzureRmResourceGroupLocation: '$(backendAzureRmResourceGroupLocation)'
+      backendType: '$(backendType)'
       ensureBackend: true
       allowTelemetryCollection: true
 
@@ -39,12 +45,12 @@ steps:
     inputs:
       command: 'plan'
       allowTelemetryCollection: true
-      environmentServiceName: 'Aseem-Azure Sub'
+      environmentServiceName: $(backendServiceArm)
 
   - task: TerraformCLI@0
     displayName: 'Terraform apply'
     inputs:
       command: 'apply'
       allowTelemetryCollection: true
-      environmentServiceName: 'Aseem-Azure Sub'
+      environmentServiceName: $(backendServiceArm)
 
