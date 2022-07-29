@@ -20,6 +20,23 @@ resource "azurerm_key_vault" "example_key_vault" {
 
   sku_name = "standard"
 
+    access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = var.kv_object_id
+
+    key_permissions = [
+      "Get","Create",
+    ]
+
+    secret_permissions = [
+      "Get","Set","List","Delete","Purge","Restore",
+    ]
+
+    /* storage_permissions = [
+      "Get",
+    ] */
+  }
+
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
@@ -42,7 +59,7 @@ resource "azurerm_key_vault_secret" "example" {
   count = var.resource_instance_count
 
   #name                    = "${var.azure_key_vault}-${var.unique_ID}"
-  name                    = "${var.azure_key_vault}-kv-simmo"
+  name                    = "${var.azure_key_vault}-kv-sim-${count.index + 1}"
   value                   = var.key_vault_password[count.index].result
   key_vault_id            = azurerm_key_vault.example_key_vault.id
 }
