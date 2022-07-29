@@ -24,10 +24,8 @@ steps:
       command: 'init'
       backendServiceArm: $(backendServiceArm)
       backendAzureRmResourceGroupName: '$(backendAzureRmResourceGroupName)'
-      backendAzureRmResourceGroupName: '$(backendAzureRmResourceGroupName)'
       backendAzureRmContainerName: '$(backendAzureRmContainerName)'
-      backendAzureRmStorageAccountName: '$()'
-      backendAzureRmContainerName: '$(backendAzureRmContainerName)'
+      backendAzureRmStorageAccountName: '$(backendAzureRmStorageAccountName)'
       backendAzureRmKey: '$(backendAzureRmKey)'
       backendAzureRmResourceGroupLocation: '$(backendAzureRmResourceGroupLocation)'
       backendType: '$(backendType)'
