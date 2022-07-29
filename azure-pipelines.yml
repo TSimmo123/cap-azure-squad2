@@ -28,7 +28,7 @@ steps:
       backendAzureRmStorageAccountName: '$(backendAzureRmStorageAccountName)'
       backendAzureRmKey: '$(backendAzureRmKey)'
       backendAzureRmResourceGroupLocation: '$(backendAzureRmResourceGroupLocation)'
-      backendType: '$(backendType)'
+      backendType: 'azurerm'
       ensureBackend: true
       allowTelemetryCollection: true
 
