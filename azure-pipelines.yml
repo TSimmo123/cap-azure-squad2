@@ -13,8 +13,8 @@ variables:
 - group: simmo-vars
 
 jobs:
-- job: TerraformInstallation
-  displayName: 'Terraform Installation'
+- job: Terraform_Validate
+  displayName: 'Terraform Validate'
 
   steps:
     - task: TerraformInstaller@0
