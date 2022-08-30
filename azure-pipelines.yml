@@ -16,28 +16,8 @@ jobs:
 - job: Terraform_Validate
   displayName: 'Terraform Validate'
 
-<<<<<<< HEAD
-  - task: TerraformCLI@0
-    displayName: 'Terraform init'
-    inputs:
-      command: 'init'
-      backendServiceArm: $(backendServiceArm)
-      backendAzureRmResourceGroupName: '$(backendAzureRmResourceGroupName)'
-      backendAzureRmContainerName: '$(backendAzureRmContainerName)'
-      backendAzureRmStorageAccountName: '$(backendAzureRmStorageAccountName)'
-      backendAzureRmKey: '$(backendAzureRmKey)'
-      backendAzureRmResourceGroupLocation: '$(backendAzureRmResourceGroupLocation)'
-      backendType: 'azurerm'
-      ensureBackend: true
-      allowTelemetryCollection: true
-=======
   steps:
-    - task: TerraformInstaller@0
-      displayName: 'Terraform Installer'
-      inputs:
-        terraformVersion: 'latest'
->>>>>>> 0c626c6f65681c7b6468a38ea671f1f79b1198fd
-
+    - template: tasks/install.yml
     - task: TerraformCLI@0
       displayName: 'Terraform init'
       inputs:
@@ -57,7 +37,12 @@ jobs:
       inputs:
         command: 'validate'
         allowTelemetryCollection: true
+        
+  - job: Terraform_Plan
+    displayName: 'Terraform Plan'
 
+    steps:
+    - template: tasks/install.yml
     - task: TerraformCLI@0
       displayName: 'Terraform plan'
       inputs:
