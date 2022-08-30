@@ -1,0 +1,4 @@
+- task: TerraformInstaller@0
+  displayName: 'Terraform Installer'
+  inputs:
+    terraformVersion: 'latest'
